@@ -18,6 +18,7 @@ fun visitTavern() {
     println(menuItems)
 
     val patrons = mutableListOf("Eli", "Mordoc", "Sophie")
+    val readOnlyPatrons = patrons.toList()
 
     val eliMessage = if (patrons.contains("Eli")) {
         "$TAVERN_MASTER says: Eli's in the back playing cards"
@@ -33,6 +34,8 @@ fun visitTavern() {
     }
     println(othersMessage)
 
+
+
     /*
     patrons.forEach { patron ->
         println("Good evening, $patron")
@@ -44,7 +47,7 @@ fun visitTavern() {
 
     patrons.forEachIndexed() { index, patron ->
         println("Good evening, $patron - you're #${index + 1} in line")
-        placeOrder(patron, "Dragon's Breath")
+        placeOrder(patron, menuItems.random())
     }
 }
 
