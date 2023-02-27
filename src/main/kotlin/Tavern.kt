@@ -15,13 +15,40 @@ private val menuItems = List(menuData.size) { index ->
     name
 }
 
+private val menuPrices = List(menuData.size) { index ->
+    val(_,_, price) = menuData[index].split(",")
+    price
+}
+
 fun visitTavern() {
     narrate("$heroName enters $TAVERN_NAME")
-    narrate("There are several items for sale:")
-    narrate(menuItems.joinToString())
+    //narrate("There are several items for sale:")
+    narrate("Welcome to Taernyl's Folly")
+
+    //get longest menu item.
+    val longestItem = menuItems.maxBy { it.length }.length
+
+    //longest price
+    val longestPrice = menuPrices.maxBy { it.length}.length
+    println("longest price $longestPrice")
+
+    // row length
+    val rowLength = longestItem + longestPrice + 5
+
+
+    //loop print menu item dots calculated price
+    menuItems.forEachIndexed {index, item ->
+        val dots = rowLength - (item.length + menuPrices[index].length)
+        print(item)
+        repeat(dots) {
+            print(".")
+        }
+        print(menuPrices[index])
+        println()
+    }
 
     val patrons: MutableSet<String> = mutableSetOf()
-    repeat(10) {
+    while(patrons.size < 10) {
         patrons += "${firstName.random()} ${lastName.random()}"
     }
     val readOnlyPatrons = patrons.toList()
@@ -32,6 +59,7 @@ fun visitTavern() {
     repeat(3) {
         placeOrder(patrons.random(), menuItems.random())
     }
+
 
 }
 
