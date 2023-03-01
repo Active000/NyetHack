@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30c9fecf-c1f4-4da0-ba04-1c397e42015e" name="Changes" comment="chapter 9 1st challenge">
+    <list default="true" id="30c9fecf-c1f4-4da0-ba04-1c397e42015e" name="Changes" comment="chapter 9 2nd challenge">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Tavern.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Tavern.kt" afterDir="false" />
     </list>
@@ -106,7 +106,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677471135644</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="chapter 9 2nd challenge">
+      <created>1677597835013</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677597835013</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -114,6 +121,7 @@
     <MESSAGE value="added data" />
     <MESSAGE value="end of list" />
     <MESSAGE value="chapter 9 1st challenge" />
-    <option name="LAST_COMMIT_MESSAGE" value="chapter 9 1st challenge" />
+    <MESSAGE value="chapter 9 2nd challenge" />
+    <option name="LAST_COMMIT_MESSAGE" value="chapter 9 2nd challenge" />
   </component>
 </project>

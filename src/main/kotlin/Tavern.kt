@@ -70,8 +70,14 @@ fun visitTavern() {
      */
 
     val patrons: MutableSet<String> = mutableSetOf()
-    while(patrons.size < 10) {
-        patrons += "${firstName.random()} ${lastName.random()}"
+    val patronGold = mutableMapOf(
+        TAVERN_MASTER to 86.00,
+        heroName to 4.50
+    )
+    while(patrons.size < 5) {
+        val patronName = "${firstName.random()} ${lastName.random()}"
+        patrons += patronName
+        patronGold += patronName to 6.0
     }
     val readOnlyPatrons = patrons.toList()
 
@@ -79,13 +85,25 @@ fun visitTavern() {
     narrate(patrons.joinToString())
 
     repeat(3) {
-        placeOrder(patrons.random(), menuItemsNames.random())
+        placeOrder(patrons.random(), menuItemsNames.random(), patronGold)
     }
 
 
 }
 
-private fun placeOrder(patronName: String, menuItemName: String) {
+private fun placeOrder(
+    patronName: String,
+    menuItemName: String ,
+    patronGold: MutableMap<String, Double>
+) {
+    val itemPrice = 1.0
     narrate("$patronName speaks with $TAVERN_MASTER to place an order")
-    narrate("$TAVERN_MASTER hands $patronName a $menuItemName")
+    if (itemPrice <= patronGold.getOrDefault(patronName, 0.0)) {
+        narrate("$TAVERN_MASTER hands $patronName a $menuItemName")
+        narrate("$patronName pays $TAVERN_MASTER $itemPrice gold")
+        patronGold[patronName] = patronGold.getValue(patronName) - itemPrice
+        patronGold[TAVERN_MASTER] = patronGold.getValue(TAVERN_MASTER) + itemPrice
+    } else {
+        narrate("$TAVERN_MASTER says, \"You need more coin for a $menuItemName\"")
+    }
 }
