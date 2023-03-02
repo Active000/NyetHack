@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="30c9fecf-c1f4-4da0-ba04-1c397e42015e" name="Changes" comment="chapter 9 2nd challenge">
+    <list default="true" id="30c9fecf-c1f4-4da0-ba04-1c397e42015e" name="Changes" comment="page 207">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/Tavern.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/Tavern.kt" afterDir="false" />
     </list>
@@ -27,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -113,7 +118,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677597835013</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="page 207">
+      <created>1677705685541</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1677705685541</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -122,6 +134,7 @@
     <MESSAGE value="end of list" />
     <MESSAGE value="chapter 9 1st challenge" />
     <MESSAGE value="chapter 9 2nd challenge" />
-    <option name="LAST_COMMIT_MESSAGE" value="chapter 9 2nd challenge" />
+    <MESSAGE value="page 207" />
+    <option name="LAST_COMMIT_MESSAGE" value="page 207" />
   </component>
 </project>
