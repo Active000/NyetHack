@@ -9,26 +9,17 @@ private val lastName = setOf("Ironfoot", "Fernsworth", "Baggins", "Downstrider")
 private val menuData = File("data/tavern-menu-data.txt")
     .readText()
     .split("\n")
+    .map { it.split(",")}
 
-private val menuItemNames = List(menuData.size) { index ->
-    val (_, name, _) = menuData[index].split(",")
-    name
-}
+private var menuItems = menuData.map { (_, name, _) -> name }
 
-private var menuItems = menuData.map { menuEntry ->
-    val (_, name, _) = menuEntry.split(",")
-    name
-}
-
-private val menuItemPrices = menuData.map { menuEntry ->
-    val(_, name, price) = menuEntry.split(",")
+private val menuItemPrices = menuData.associate { (_, name, price) ->
     name to price.toDouble()
-}.toMap()
+}
 
-private val menuItemTypes = menuData.map { menuEntry ->
-    val (type, name, _) = menuEntry.split(",")
+private val menuItemTypes = menuData.associate { (type, name, _) ->
     name to type
-}.toMap()
+}
 
 fun visitTavern() {
     narrate("$heroName enters $TAVERN_NAME")
@@ -39,7 +30,7 @@ fun visitTavern() {
     // Sort the list of menu items
     menuItems = menuItems.sortedBy { it[0] }
     //get longest menu item.
-    val longestItem = menuItemNames.maxBy { it.length }.length
+    val longestItem = menuItems.maxBy { it.length }.length
 
     //longest price
     val longestPrice = menuItemPrices.maxBy { (_, price) ->
@@ -91,7 +82,7 @@ fun visitTavern() {
     narrate(patrons.joinToString())
 
     repeat(3) {
-        placeOrder(patrons.random(), menuItemNames.random(), patronGold)
+        placeOrder(patrons.random(), menuItems.random(), patronGold)
     }
 
 
