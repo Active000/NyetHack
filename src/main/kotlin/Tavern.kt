@@ -10,21 +10,25 @@ private val menuData = File("data/tavern-menu-data.txt")
     .readText()
     .split("\n")
 
-private val menuItemsNames = List(menuData.size) { index ->
+private val menuItemNames = List(menuData.size) { index ->
     val (_, name, _) = menuData[index].split(",")
     name
 }
 
-private var menuItems = List(menuData.size) { index ->
-    val (category, name, price) = menuData[index].split(",")
-    listOf(category, name, price)
+private var menuItems = menuData.map { menuEntry ->
+    val (_, name, _) = menuEntry.split(",")
+    name
 }
 
+private val menuItemPrices = menuData.map { menuEntry ->
+    val(_, name, price) = menuEntry.split(",")
+    name to price.toDouble()
+}.toMap()
 
-private val menuPrices = List(menuData.size) { index ->
-    val(_,_, price) = menuData[index].split(",")
-    price
-}
+private val menuItemTypes = menuData.map { menuEntry ->
+    val (type, name, _) = menuEntry.split(",")
+    name to type
+}.toMap()
 
 fun visitTavern() {
     narrate("$heroName enters $TAVERN_NAME")
@@ -35,25 +39,27 @@ fun visitTavern() {
     // Sort the list of menu items
     menuItems = menuItems.sortedBy { it[0] }
     //get longest menu item.
-    val longestItem = menuItemsNames.maxBy { it.length }.length
+    val longestItem = menuItemNames.maxBy { it.length }.length
 
     //longest price
-    val longestPrice = menuPrices.maxBy { it.length}.length
+    val longestPrice = menuItemPrices.maxBy { (_, price) ->
+        price.toString().length
+    }.value
 
     // row length
-    val rowLength = longestItem + longestPrice + 5
+    val rowLength = longestItem + longestPrice.toString().length + 5
 
 
-    //loop print menu item dots calculated price
-    menuItems.forEachIndexed { index, item ->
-        val dots = rowLength - (item[1].length + item[2].length)
-        print(item[1])
+    //loop print menu item dots calculated pric
+    menuItemPrices.forEach { name, price ->
+        val dots = rowLength - (name.length + price.toString().length)
+        print(name)
         repeat(dots) {
             print(".")
         }
-        print(item[2]) // Price
+        print(price) // Price
         println()
-        print("~[${item[0]}]~") // Category
+        print("~[${menuItemTypes[name]}]~") // Category
         println()
 
     }
@@ -85,7 +91,7 @@ fun visitTavern() {
     narrate(patrons.joinToString())
 
     repeat(3) {
-        placeOrder(patrons.random(), menuItemsNames.random(), patronGold)
+        placeOrder(patrons.random(), menuItemNames.random(), patronGold)
     }
 
 
