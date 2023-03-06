@@ -1,4 +1,6 @@
 import java.io.File
+import kotlin.random.Random
+import kotlin.random.nextInt
 
 private const val TAVERN_MASTER = "Taernyl"
 private const val TAVERN_NAME = "$TAVERN_MASTER's folley"
@@ -81,11 +83,35 @@ fun visitTavern() {
     narrate("$heroName sees several patrons in the tavern:")
     narrate(patrons.joinToString())
 
+    val itemOfDay = patrons.flatMap { getFavoriteMenuItems(it) }.random()
+    println("The item of the day is the $itemOfDay")
     repeat(3) {
         placeOrder(patrons.random(), menuItems.random(), patronGold)
     }
+    displayPatronBalances(patronGold)
+
+    val departingPatrons: List<String> = patrons
+        .filter { patron -> patronGold.getOrDefault(patron, 0.0) < 4.0 }
+    patrons -= departingPatrons
+    patronGold -= departingPatrons
+
+    departingPatrons.forEach { patron ->
+        narrate("$heroName sees $patron departing the tavern")
+    }
+
+    narrate((("there are still some patrons in the tavern")))
+    narrate(patrons.joinToString())
 
 
+}
+
+private fun getFavoriteMenuItems(patron: String): List<String> {
+    return when (patron) {
+        "Alex Ironfoot" -> menuItems.filter { menuItem ->
+            menuItemTypes[menuItem]?.contains("dessert") == true
+        }
+        else -> menuItems.shuffled().take(Random.nextInt(1..2))
+    }
 }
 
 private fun placeOrder(
@@ -102,5 +128,12 @@ private fun placeOrder(
         patronGold[TAVERN_MASTER] = patronGold.getValue(TAVERN_MASTER) + itemPrice
     } else {
         narrate("$TAVERN_MASTER says, \"You need more coin for a $menuItemName\"")
+    }
+}
+
+private fun displayPatronBalances(patronGold: Map<String, Double>) {
+    narrate("$heroName intuitively knows how much money each patron has")
+    patronGold.forEach { (patron, balance) ->
+        narrate("$patron has ${"%.2f".format(balance)} gold")
     }
 }
