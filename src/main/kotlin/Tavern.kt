@@ -68,23 +68,27 @@ fun visitTavern() {
     }
      */
 
-    val patrons: MutableSet<String> = mutableSetOf()
+    val patrons: MutableSet<String> = firstName.shuffled()
+        .zip(lastName.shuffled()) { firstName, lastName -> "$firstName $lastName"}
+        .toMutableSet()
     val patronGold = mutableMapOf(
         TAVERN_MASTER to 86.00,
-        heroName to 4.50
+        heroName to 4.50,
+        *patrons.map { it to 6.0 }.toTypedArray()
     )
-    while(patrons.size < 5) {
-        val patronName = "${firstName.random()} ${lastName.random()}"
-        patrons += patronName
-        patronGold += patronName to 6.0
-    }
+
+
+
     val readOnlyPatrons = patrons.toList()
 
     narrate("$heroName sees several patrons in the tavern:")
     narrate(patrons.joinToString())
 
-    val itemOfDay = patrons.flatMap { getFavoriteMenuItems(it) }.random()
-    println("The item of the day is the $itemOfDay")
+    val itemsOfDay = patrons.flatMap { getFavoriteMenuItems(it) }
+    println("ITEMS OF DAY: $itemsOfDay")
+    val numbersByElement = itemsOfDay.groupingBy { it }.eachCount()
+    val itemOfDay = numbersByElement.maxBy { it.value }?.key
+        println("The item of the day is the $itemOfDay")
     repeat(3) {
         placeOrder(patrons.random(), menuItems.random(), patronGold)
     }
@@ -101,8 +105,6 @@ fun visitTavern() {
 
     narrate((("there are still some patrons in the tavern")))
     narrate(patrons.joinToString())
-
-
 }
 
 private fun getFavoriteMenuItems(patron: String): List<String> {
