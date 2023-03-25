@@ -1,16 +1,18 @@
-import java.security.ProtectionDomain
+package com.bignerdranch.nyethack
+
+import visitTavern
 
 class NyetHack {
 
 }
 var heroName: String = ""
 
-val player = Player()
+val player = Player("Jason", "Jacksonville", 100, false)
 fun main() {
-    narrate("${player.name} is ${player.title}")
-    player.changeName("Aurelia")
     // changeNarratorMood()
+    val mortality = if (player.isImmortal) "an immortal" else "a mortal"
     narrate("${player.name}, ${player.title}, heads to the town square")
+    narrate("${player.name}, $mortality, has ${player.healthPoints} health points")
     visitTavern()
     player.castFireball()
 }

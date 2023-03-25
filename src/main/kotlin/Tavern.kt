@@ -1,3 +1,6 @@
+import com.bignerdranch.nyethack.heroName
+import com.bignerdranch.nyethack.narrate
+import com.bignerdranch.nyethack.player
 import java.io.File
 import kotlin.random.Random
 import kotlin.random.nextInt

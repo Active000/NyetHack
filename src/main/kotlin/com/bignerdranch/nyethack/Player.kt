@@ -1,5 +1,12 @@
-class Player {
-    var name = "madrigal"
+package com.bignerdranch.nyethack
+
+class Player(
+    initialName: String,
+    val hometown: String,
+    val healthPoints: Int,
+    val isImmortal: Boolean
+) {
+    var name = initialName
         get() = field.replaceFirstChar { it.uppercase() }
         private set(value) {
             field = value.trim()
