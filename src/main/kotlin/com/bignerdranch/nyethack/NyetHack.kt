@@ -7,14 +7,17 @@ class NyetHack {
 }
 var heroName: String = ""
 
-val player = Player("Jason", "Jacksonville", 100, false)
+val player = Player("Jason")
 fun main() {
     // changeNarratorMood()
+    player.prophesize()
+    var currentRoom = Room("They Foyer")
     val mortality = if (player.isImmortal) "an immortal" else "a mortal"
     narrate("${player.name}, ${player.title}, heads to the town square")
     narrate("${player.name}, $mortality, has ${player.healthPoints} health points")
-    visitTavern()
+    currentRoom.enterRoom()
     player.castFireball()
+    player.prophesize()
 }
 
 private fun promptHeroName(): String {
