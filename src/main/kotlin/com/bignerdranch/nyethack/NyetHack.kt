@@ -1,29 +1,77 @@
 package com.bignerdranch.nyethack
 
-import visitTavern
+lateinit var player: Player
 
-class NyetHack {
-
-}
-var heroName: String = ""
-
-val player = Player("Jason")
 fun main() {
+    narrate("Welcome to NyetHack!")
+    val playerName = promptHeroName()
+    player = Player(playerName)
     // changeNarratorMood()
-    player.prophesize()
-    var currentRoom = Room("They Foyer")
-    val mortality = if (player.isImmortal) "an immortal" else "a mortal"
-    narrate("${player.name}, ${player.title}, heads to the town square")
-    narrate("${player.name}, $mortality, has ${player.healthPoints} health points")
-    currentRoom.enterRoom()
-    player.castFireball()
-    player.prophesize()
+
+    Game.play()
 }
+
+object Game {
+    private val worldMap = listOf(
+        listOf(TownSquare(), Tavern(), Room("Back Room")),
+        listOf(Room("A Long Corridor"), Room("A Generic Room")),
+        listOf(Room("The Dungeon"))
+    )
+    var currentRoom: Room = worldMap[0][0]
+    var currentPosition = Coordinate(0,0)
+    init {
+        narrate("welcome, adventurer")
+        val mortality = if (player.isImmortal) "an mmortal" else "a mortal"
+        narrate("${player.name}, $mortality, has ${player.healthPoints} health points")
+    }
+
+    fun play() {
+        while (true) {
+            narrate("${player.name} of ${player.hometown}, ${player.title}, is in ${currentRoom.description()}")
+            currentRoom.enterRoom()
+            print("> Enter your command: ")
+            GameInput(readLine()).processCommand()
+        }
+    }
+
+        fun move(direction: Direction) {
+            val newPosition = direction.updateCoordinate(currentPosition)
+            val newRoom = worldMap.getOrNull(newPosition.y)?.getOrNull(newPosition.x)
+
+            if(newRoom != null) {
+                narrate("The hero moves ${direction.name}")
+                currentPosition = newPosition
+                currentRoom = newRoom
+            } else {
+                narrate("You cannot move ${direction.name}")
+            }
+        }
+    private class GameInput(arg: String?) {
+        private val input = arg ?: ""
+        val command = input.split(" ")[0]
+        val argument = input.split(" ").getOrElse(1) { "" }
+
+        fun processCommand() = when (command.lowercase()) {
+            "move" -> {
+                val direction = Direction.values()
+                    .firstOrNull { it.name.equals(argument, ignoreCase = true)}
+                if(direction != null) {
+                    move(direction)
+                } else {
+                    narrate("I don't know what direction that is")
+                }
+            }
+            else -> narrate("I'm not sure what you're trying to do")
+        }
+    }
+
+}
+
 
 private fun promptHeroName(): String {
     narrate("A hero enters the town of Kronstadt. What is their name?") { message ->
         // Prints the message in yellow
-        "\u001B[33;1m$message\u001B[0m"
+        "\u001b[33;1m$message\u001b[0m"
     }
 
     /*val input = readLine()
@@ -35,5 +83,3 @@ private fun promptHeroName(): String {
     println("Madrigal")
     return "Madrigal"
 }
-
-private fun makeYellow(message: String) = "\u001B[33;1m$message\u001B[0m"
