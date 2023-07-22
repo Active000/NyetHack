@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b0e1e-7691-4243-bd23-c0db18505fca" name="Changes" comment="lazy initialization and beginneng of chapter 15 enheritance">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Navigation.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Tavern.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/TownSquare.kt" afterDir="false" />
+    <list default="true" id="128b0e1e-7691-4243-bd23-c0db18505fca" name="Changes" comment="Chapter 16 p 336&#10;implementing move feature">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Main.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/Tavern.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Narrator.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Narrator.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/NyetHack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/NyetHack.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Player.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Player.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Room.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Room.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +110,15 @@
       <option name="project" value="LOCAL" />
       <updated>1683729906141</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Chapter 16 p 336&#10;implementing move feature">
+      <option name="closed" value="true" />
+      <created>1688659694518</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1688659694518</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -136,6 +136,18 @@
     <MESSAGE value="Pag 499 ebook" />
     <MESSAGE value="Page physical 272" />
     <MESSAGE value="lazy initialization and beginneng of chapter 15 enheritance" />
-    <option name="LAST_COMMIT_MESSAGE" value="lazy initialization and beginneng of chapter 15 enheritance" />
+    <MESSAGE value="Chapter 16 p 336&#10;implementing move feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Chapter 16 p 336&#10;implementing move feature" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="kotlin-line">
+          <url>file://$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Player.kt</url>
+          <line>66</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

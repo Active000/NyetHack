@@ -62,4 +62,13 @@ class Player(
         narrate("$name thinks about their future")
         narrate("A fortune teller told Madrigal, \"$prophecy\"")
     }
+
+    fun cast(spell: String) {
+        when(spell) {
+            "fireball" -> {
+                narrate("A fireball got shot to the enemy")
+            }
+
+        }
+    }
 }

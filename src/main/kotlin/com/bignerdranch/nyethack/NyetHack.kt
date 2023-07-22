@@ -19,6 +19,7 @@ object Game {
     )
     var currentRoom: Room = worldMap[0][0]
     var currentPosition = Coordinate(0,0)
+    var running = true;
     init {
         narrate("welcome, adventurer")
         val mortality = if (player.isImmortal) "an mmortal" else "a mortal"
@@ -26,7 +27,7 @@ object Game {
     }
 
     fun play() {
-        while (true) {
+        while (running) {
             narrate("${player.name} of ${player.hometown}, ${player.title}, is in ${currentRoom.description()}")
             currentRoom.enterRoom()
             print("> Enter your command: ")
@@ -60,6 +61,18 @@ object Game {
                 } else {
                     narrate("I don't know what direction that is")
                 }
+            }
+            "cast" -> {
+                player.cast(argument)
+
+            }
+
+            "prophesize" -> {
+                player.prophesize()
+            }
+            "quit" -> {
+                narrate("Quiting game...")
+                running = false
             }
             else -> narrate("I'm not sure what you're trying to do")
         }
