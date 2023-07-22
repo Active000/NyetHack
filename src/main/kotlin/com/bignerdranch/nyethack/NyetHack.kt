@@ -70,6 +70,18 @@ object Game {
             "prophesize" -> {
                 player.prophesize()
             }
+            "map" -> {
+                worldMap.forEachIndexed { y, row ->
+                    row.forEachIndexed { x, column ->
+                        if(x == currentPosition.x && y == currentPosition.y) print("X")
+                        else {
+                            print("0")
+                        }
+                    }
+                    println()
+                }
+
+            }
             "quit" -> {
                 narrate("Quiting game...")
                 running = false

@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="128b0e1e-7691-4243-bd23-c0db18505fca" name="Changes" comment="Chapter 16 p 336&#10;implementing move feature">
+    <list default="true" id="128b0e1e-7691-4243-bd23-c0db18505fca" name="Changes" comment="Challenge: More commands completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/NyetHack.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/NyetHack.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Player.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/kotlin/com/bignerdranch/nyethack/Player.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +117,15 @@
       <option name="project" value="LOCAL" />
       <updated>1688659694518</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Challenge: More commands completed">
+      <option name="closed" value="true" />
+      <created>1690001995461</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1690001995462</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,7 +144,8 @@
     <MESSAGE value="Page physical 272" />
     <MESSAGE value="lazy initialization and beginneng of chapter 15 enheritance" />
     <MESSAGE value="Chapter 16 p 336&#10;implementing move feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Chapter 16 p 336&#10;implementing move feature" />
+    <MESSAGE value="Challenge: More commands completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Challenge: More commands completed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
